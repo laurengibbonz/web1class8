@@ -4,10 +4,69 @@
     <title>Arrays</title>
 </head>
 <body>
-    <div id="demo"></div>
+    <div class="class">Div</div>
+    <div class="class">Div</div>
+    <div class="class">Div</div>
+    <div class="class">Div</div>
+    <div class="class">Div</div>
+    <div class="class">Div</div>
+
+    <button id="remove">Remove Last</button>
 
 <script>
-let cats = new Array("Smokie", "Kitty", "Tiger");
+// let divs = document.querySelectorAll('div');
+// console.log(divs);
+// let divsArray = new Array(divs);
+// const button = document.getElementById('remove');
+// button.addEventListener('click', function(){
+//     divsArray.pop();
+// });
+
+let cats = ["Smokie", "Kitty", "Tiger"];
+let newCats = ["Smokie 2", "Kitty 2", "Tiger 2", "Tiger 3"];
+// let cats = new Array("Smokie", "Kitty", "Tiger");
+
+cats = cats.concat(newCats);
+
+// .slide(start, end);
+
+cats.pop();
+
+cats.push('Bell');
+
+cats.unshift('First New Cat');
+console.log(cats);
+
+cats.sort();
+console.log(cats);
+
+let catObj = { 
+    name: {
+        firstName: 'Smokie', 
+        lastName: 'Gibbons'
+    },
+    age: 2, 
+    breed: 'Calico',
+    speak() {
+        console.log('Meow');
+    }
+};
+
+console.log(catObj.name.firstName + catObj.name.lastName);
+
+catObj.speak();
+
+function whatKey(e) {
+    // console.log(e);
+    if(e.keyCode == 40) {
+        console.log('down');
+    }
+}
+
+window.addEventListener('keydown', whatKey);
+
+
+
 //Challenge 1: Add a new cat to the end of the array (Hint: use push)
 
 //Challenge 2: Remove the first cat (Hint: use shift)
