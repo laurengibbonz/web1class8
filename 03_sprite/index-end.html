@@ -105,15 +105,18 @@
         bgWidth = document.getElementById('sky').offsetWidth,
         step = 200;
     let direction = 'forwards',
-        divPosition = 0;
+        divPosition = 0,
+        screenWidth = window.innerWidth;
+
+    console.log(screenWidth);
 
     function moveCharacter(e) {
-        console.log(e);
+        console.log(screenWidth);
         //Right
         if(e.keyCode == 39) {
             character.classList.add('walkForwards');
             direction = 'forwards';
-            if((bgWidth - step*7) <= -divPosition) {
+            if(((bgWidth - step) - screenWidth) <= -divPosition) {
                 return;
             } else {
                 divPosition = divPosition - step;
@@ -147,6 +150,9 @@
     
     character.addEventListener('animationend', removeTransition);
     document.addEventListener('keydown', moveCharacter);
+    window.addEventListener('resize', function(){
+        screenWidth = window.innerWidth;
+    });
 </script>
 </body>
 </html>
